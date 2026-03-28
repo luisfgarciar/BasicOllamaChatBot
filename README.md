@@ -6,10 +6,10 @@ This project provides a Docker Compose configuration to easily set up and run a 
 
 The `compose.yaml` file orchestrates two main services:
 
-### 1. ollama
+### 1. ollama-chatbot
 *   **Image**: `ollama/ollama:latest`
 *   **Purpose**: Acts as the backend server to run LLMs.
-*   **Ports**: Exposes port `11434`.
+*   **Ports**: Exposes port `11435` on the host (mapped to container port `11434`).
 *   **Volumes**: Persists model data locally in the `./ollama_data` directory.
 
 ### 2. open-webui
@@ -34,7 +34,7 @@ The `compose.yaml` file orchestrates two main services:
 
     Then pull the model manually:
     ```bash
-    docker exec -it ollama ollama pull llama3.2:1b
+    docker exec -it ollama-chatbot ollama pull llama3.2:1b
     ```
 
 
